@@ -7,8 +7,12 @@ class config :
 public class Config {
 	String appVersion;
 	String orgName;
-	String maxDbLines;	
+	String maxDbLines;
 }
+
+Créer une configuration Spring par assitant STS: 
+================================================
+
 
 initialisation et gestion par spring :
 ======================================
@@ -33,6 +37,10 @@ méthode d'initialisation :
 Initier le context spring dans le main :
 ========================================
 ApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
+
+Ajouter les classes CurrencyConverter et Rates à la configuration spring
+========================================================================
+Réduire le code du singleton au passage. 
 
 
 °°°°°°°°°°
@@ -82,6 +90,8 @@ public Object perfs(ProceedingJoinPoint proceedingJoinPoint){
 La valeur à retourner
 proceedingJoinPoint.proceed();
 
+Ajouter le bean dans la configuration xml de spring
+
 Activation des traitement aynchrones (config spring):
 ====================================================
 
@@ -91,3 +101,8 @@ Activation des traitement aynchrones (config spring):
 Bloquer un thread pour vérifier qu'il s'éxecute à part:
 =======================================================
 Thread.sleep(10000);
+
+Ajouter les annotations pour traitement asynchrone ou planifié :
+================================================================
+@Async
+@Scheduled(fixedDelay=1000)

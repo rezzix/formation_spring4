@@ -1,0 +1,55 @@
+Dépendances :
+=============
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>4.3.1.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.8.10</version>
+		</dependency>
+		
+		
+Instancier une RestTemplate :
+=============================
+
+RestTemplate restTemplate = new RestTemplate();
+
+Connaitre les options (méthodes ou verbes) possibles :
+======================================================
+
+Set<HttpMethod> optionsForAllow = restTemplate.optionsForAllow(resourceUrl);
+    	
+Afficher les entêtes du serveur pour l'url :
+=============================================
+
+HttpHeaders httpHeaders = restTemplate.headForHeaders(resourceUrl);
+
+Afficher l'entité retourné pour l'url:
+======================================
+
+ResponseEntity<String> response = restTemplate.getForEntity(resourceUrl , String.class);
+
+Afficher un tableau d'objets déserialisé :
+==========================================
+
+Customer[] custs = restTemplate.getForObject(resourceUrl , Customer[].class);
+
+Construire une entête avec authentification :
+=============================================
+
+HttpHeaders createHeaders(String username, String password){
+   return new HttpHeaders() {{
+         String auth = username + ":" + password;
+         byte[] encodedAuth = Base64.encodeBase64( 
+            auth.getBytes(Charset.forName("US-ASCII")) );
+         String authHeader = "Basic " + new String( encodedAuth );
+         set( "Authorization", authHeader );
+      }};
+}
+
+restTemplate.exchange
+ (uri, HttpMethod.POST, new HttpEntity<T>(createHeaders(username, password)), clazz);

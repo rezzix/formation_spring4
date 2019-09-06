@@ -1,0 +1,78 @@
+Nouveau projet maven (simple ou quick start):
+=============================================
+
+Modifier la définition du POM en ajoutant:
+==========================================
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.7.RELEASE</version>
+	</parent>
+
+NB: supprimer le groupe et version existants
+
+Ajouter la dépendance boot web:
+==========================
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+
+Sur la classe pricipale ajouter la configuration automatique et la nature RestController :
+==========================================================================================
+@RestController
+@EnableAutoConfiguration
+
+Créer une méthode qui répond à un mapping "/accueil" par un simple message:
+===========================================================================
+
+Créer une méthode qui répond à un mapping "restcustomers" et qui retourne un JSON à partir d'une liste de clients :
+===================================================================================================================
+
+Lancer l'application à partir du main en utilisant SpringApplication:
+=====================================================================
+SpringApplication.run(App.class, args);
+
+Pour créer le repository ajouter la dépendance vers spring-boot jdbc et jpa et h2:
+==================================================================================
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+		</dependency>
+
+Configurer les parametres dans le fichiers application.properties :
+=======================================================
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.properties..hibernate.dialect=org.hibernate.dialect.H2Dialect
+spring.datasource.url=jdbc:h2:tcp://localhost:9092/~/tmp/sales
+spring.datasource.username=sa
+spring.datasource.password=changeme
+spring.datasource.driverClassName=org.h2.Driver
+
+Configurer le scan automatique des composants:
+==============================================
+@ComponentScan({"com.formation.spring"})
+
+Ajouter l'interface du repository CustomerRepository
+=======================================================
+
+Copier les classes Entity et parametrer leur emplacement dans la classe de lancement:
+=====================================================================================
+@EntityScan("com.formation.spring.domain")
+
+Activer le repository ajouté :
+==============================
+@EnableJpaRepositories("com.formation.spring.repository")
+
+
+Ajouter une méthode REST du controlleur qui retourne la liste des utilisateurs de la BD:
+========================================================================================

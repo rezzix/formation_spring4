@@ -1,0 +1,83 @@
+Ajouter la dependance maven:
+============================
+  <dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-web</artifactId>
+    <version>4.2.3.RELEASE</version>
+  </dependency>
+  <dependency>
+    <groupId>org.springframework.security</groupId>
+    <artifactId>spring-security-config</artifactId>
+    <version>4.2.3.RELEASE</version>
+  </dependency>
+Ajouter le filtre de séurité :
+==============================
+    <filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+Configurer l'intercepteur de sécurité basé sur les URL :
+========================================================
+	<security:http use-expressions="true">
+		<security:intercept-url pattern="/login*" access="isAnonymous()" />
+		<security:intercept-url pattern="/**" access="isAuthenticated()" />
+
+		<security:form-login login-page='/login.jsp' default-target-url="/customer/list"
+			authentication-failure-url="/login.jsp?error=true" />
+
+		<security:logout logout-success-url="/login.jsp" />
+	</security:http>
+   
+Configurer un authentification manager :
+========================================
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:user-service>
+				<security:user name="user1" password="user1Pass" authorities="ROLE_USER" />
+			</security:user-service>
+		</security:authentication-provider>
+	</security:authentication-manager>
+   
+Utiliser la jsp d'authentification :
+====================================
+ 
+ 
+Ajouter le champs de verification Cross Site Request Forgery :
+==============================================================
+<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
+Ajouter un fitrage sur le retour de la methode qui liste les clients (listCustomer)
+=========================================================================
+@PostFilter("hasPermission(filterObject,'view')")
+
+Ajouter une evaluation des expression pour la sécurité des méthodes :
+======================================================================
+<security:global-method-security pre-post-annotations="enabled">
+	<security:expression-handler ref="mysecurityexphandler"/>
+</security:global-method-security>
+
+
+Declarer l'implémentation du gestionnaire des permission sur les données :
+==========================================================================
+<bean id="mysecurityexphandler" class="org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler">
+	<property name="permissionEvaluator" ref="mypermissionEvaluator"></property>
+</bean>
+
+<bean id="mypermissionEvaluator" class="com.formation.spring.security.MyPermissionEvaluator"></bean>
+
+<security:http use-expressions="true">
+	<security:intercept-url pattern="/login*" access="isAnonymous()" />
+	<security:intercept-url pattern="/**" access="isAuthenticated()" />
+
+	<security:form-login login-page='/login.jsp' default-target-url="/customer/list"
+		authentication-failure-url="/login.jsp?error=true" />
+
+	<security:logout logout-success-url="/login.jsp" />
+</security:http>
+	
+

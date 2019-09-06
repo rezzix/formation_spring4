@@ -1,0 +1,26 @@
+Donner une interface au bean à exposer :
+=======================================
+choisir les methodes à exposer.
+
+Exporter le beann :
+===================
+	<bean id="exporter" class="org.springframework.jmx.export.MBeanExporter" lazy-init="false">
+        <property name="beans">
+            <map>
+                <entry key="bean:name=testBean1" value-ref="testBean"/>
+            </map>
+        </property>
+    </bean>
+    <bean id="testBean" class="com.formation.spring.jmx.JmxTestBean">
+        <property name="name" value="TEST"/>
+        <property name="age" value="100"/>
+    </bean>
+    
+Lancer un test unitaire basé sur spring :
+=========================================
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:application-context.xml")
+    
+Lancer Jconsole:
+================
+ > jconsole

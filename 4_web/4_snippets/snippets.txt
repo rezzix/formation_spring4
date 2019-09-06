@@ -1,0 +1,174 @@
+Pour la creation du projet utiliser l'archetype web (au lieu de quickstart) de maven:
+=============================================================
+
+Ajout d'une propriété numéro de version :
+=========================================
+	<properties>
+		<spring.version>4.3.8.RELEASE</spring.version>
+	</properties>
+	
+Ajout des dépendances (spring mvc, java web, log4j):
+====================================================
+spring-webmvc(${spring.version})
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+
+
+Configuration du plugin tomcat:
+===============================
+	<build>
+		<finalName>SpringFormation</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<port>4080</port>
+				</configuration>
+			</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>2.3.2</version>
+					<configuration>
+						<source>${java-version}</source>
+						<target>${java-version}</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.5</version>
+					<configuration>
+						<warSourceDirectory>src/main/webapp</warSourceDirectory>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	
+Configurer la DispatcherServlet :
+================================= 
+	<servlet>
+		<servlet-name>mvc-dispatcher</servlet-name>
+		<servlet-class>
+			org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:spring-mvc-config.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+Définir le mapping de la servlet :
+==================================
+	<servlet-mapping>
+		<servlet-name>mvc-dispatcher</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+Créer le fichier de configuration de DispatcherServlet sur la base de l'ancien application-context.xml :
+========================================================================================================
+
+
+Dans la configuration de DispatcherServlet (spring-mvc-config.xml):
+===================================================================
+	<mvc:annotation-driven />
+	<context:component-scan base-package="com.formation.spring" />
+	
+Configurer le view resolver :
+=============================
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+Créer un contrôleur avec l'annotation @Controller qui répond au @RequestMapping /customer/list:
+===============================================================================================
+@...
+String listCustomers(Model model, HttpServletRequest request) {
+
+}
+
+Utiliser la jsp "list.jsp" pour afficher les clients :
+======================================================
+
+Utiliser la jsp "create.jsp" pour créer un nouveau client :
+============================================================
+
+Ajouter les méthodes pour rediriger vers le formulaire et pour sauvegarder et diriger vers la liste:
+====================================================================================================
+	@RequestMapping("/create")
+	String create(@ModelAttribute("customer") Customer customer, Model model) {
+		...		
+	}
+	
+	@RequestMapping(value="/save", method=RequestMethod.POST)
+	String save(@ModelAttribute("customer") Customer customer, Model model) {
+		...
+	}
+
+Ajouter les dépendances de la validation :
+=========================================
+	<dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.1.0.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.1.2.Final</version>
+        </dependency>
+
+Mettre à jour web.xml à 2.5
+============================
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+
+Configurer la validation sur le fichier de configuration de Spring :
+====================================================================
+<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
+
+Ajouter les annotations à la classe dont les instances doivent être validés :
+=============================================================================
+@Size(min=3, max=30)
+@Pattern(regexp="[A-Ba-b]+")
+
+
+Sur le controleur modifier la signature :
+=========================================
+
+String save(@ModelAttribute("customer") @Valid Customer customer, BindingResult result, Model model) {
+
+Et retourner à la page adéquate en ca sd'erreur
+
+	if(result.hasErrors()) {
+		return "customer/create";
+	}

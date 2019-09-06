@@ -1,0 +1,46 @@
+Ajouter la dépendance spring hateoas :
+======================================
+	<dependency>
+		<groupId>org.springframework.hateoas</groupId>
+		<artifactId>spring-hateoas</artifactId>
+		<version>0.23.0.RELEASE</version>
+	</dependency>
+		
+Créer une nouvelle méthode sur le controlleur :
+===============================================
+public HttpEntity<Bienvenue> accueil(Model model, HttpServletRequest request, @RequestParam(value = "name", required = false, defaultValue = "World") String name)
+
+Utiliser le dto Bienvenue :
+===========================
+ajouter l'héritage de ResourceSupport : extends ResourceSupport 
+
+marquer le constructeur par : @JsonCreator
+
+marquer l'attribut content du contructeur par : @JsonProperty("content")
+
+Sur le controlleur :
+====================
+Créer une nouvelle méthode REST (@ResponseBody)
+
+Configurer le mapping de la requête à "/bienvenue" avec le verbe HTTP GET
+
+le type de retour doit être : HttpEntity<Bienvenue>
+
+La signature doit marquer le paramètre de requête "name"
+
+Importer statiquement les methodes de :
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.*;
+
+Le contenu bienvenue peut être augmenté de liens :
+
+	bienvenue.add(linkTo(methodOn(CustomerController.class).accueil(model, request, name)).withSelfRel());
+	bienvenue.add(linkTo(methodOn(CustomerController.class).restCustomers(model, request)).withRel("liste"));
+ 
+Retourner un objet ResponseEntity avec le contenu bievenue et le statut HttpStatus.OK
+=====================================================================================
+
+Sur RestCustomers ajouter les liens pour afficher chaque client (optionnel)
+===========================================================================
+
+Sur l'affichage du client ajouter les liens vers ses achats (optionnel)
+=======================================================================

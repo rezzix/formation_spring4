@@ -1,5 +1,42 @@
+Ajout des dépendances orm, jpa et hibernate :
+=============================================
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-orm</artifactId>
+		<version>4.3.8.RELEASE</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.data</groupId>
+		<artifactId>spring-data-jpa</artifactId>
+		<version>1.11.7.RELEASE</version>
+	</dependency>
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-entitymanager</artifactId>
+		<version>5.2.10.Final</version>
+	</dependency>
 
 
+Ajout des annotations JPA aux classes de persistance
+====================================================
+Au niveau de la classe : 
+@Entity
+
+Au niveau de la clé primaire :
+@Id
+@GeneratedValue(strategy = GenerationType.AUTO)
+
+Au niveau de la relation coté parent :
+@OneToMany(mappedBy = "customer", fetch=FetchType.EAGER)
+
+Au niveau de la relation coté fils :
+@ManyToOne(fetch=FetchType.EAGER)
+@JoinColumn(name="customer_id")
+
+Lancement de la BD H2 en mode serveur
+============================================
+java -jar /home/ossama/.m2/repository/com/h2database/h2/1.4.196/h2-1.4.196.jar -tcpAllowOthers
+Creation d'une BD embarquée
 
 Définition d'un LocalContainerEntityManagerFactoryBean :
 =========================================================
@@ -7,9 +44,12 @@ Définition d'un LocalContainerEntityManagerFactoryBean :
 	<bean id="myEmf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="packagesToScan" value="com.formation.spring.domain" />
-		
 		...
-		...
+		<property name="jpaProperties">
+			<props>
+				...
+			</props>
+		</property>
 	</bean>
 
 Hibernate comme provider de l'implémentation :
@@ -20,3 +60,57 @@ Hibernate comme provider de l'implémentation :
 		
 H2DB comme dialect de la base de données cible :
 ================================================
+		<prop key="hibernate.hbm2ddl.auto">update</prop>
+
+
+		<prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
+
+Changer le datasource vers le mode serveur :
+============================================
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="org.h2.Driver" />
+		<!-- <property name="url" value="jdbc:h2:/tmp/sales" /> -->
+		<property name="url" value="jdbc:h2:tcp://localhost:9092/~/tmp/sales" />
+		<property name="username" value="sa" />
+		<property name="password" value="changeme" />
+	</bean>
+
+
+Ajouter le support de la Transaction:
+=====================================
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="myEmf" />
+	</bean>
+	<tx:annotation-driven />
+
+Sur le DAO définir le Entity Manager :
+=======================================
+	@PersistenceContext
+	private EntityManager em;
+
+Ajouter les méthodes de persistence :
+====================================
+
+	public void add(Customer customer) {
+		em.persist(customer);
+	}
+
+Utiliser l'interface Criteria pour charger les clients:
+=======================================================
+public List<Customer> listCustomers() {
+	CriteriaQuery<Customer> criteriaQuery = em.getCriteriaBuilder().createQuery(Customer.class);
+	//@SuppressWarnings("unused")
+	Root<Customer> root = criteriaQuery.from(Customer.class);
+	return em.createQuery(criteriaQuery).getResultList();
+}
+
+Utiliser le Dao à partir d'une classe Service :
+===============================================
+Exemple
+@Transactional
+public void add(Customer customer, Sale sale) {
+   customerDao.add(customer, sale);
+}
+
+

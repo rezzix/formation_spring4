@@ -1,0 +1,67 @@
+Sur le pom.xml donner le parent :
+=================================
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.4.3.RELEASE</version>
+	</parent>
+
+Dépendances websocket :
+=======================
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-websocket</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>webjars-locator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>sockjs-client</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>stomp-websocket</artifactId>
+			<version>2.3.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>3.3.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>jquery</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+
+Marquer le ChatContoller comme Controlleur:
+===========================================
+@Controller
+
+
+Sur la méthode send du ChatControleur mapper le handler de message :
+====================================================================
+
+@MessageMapping("/chat/{topic}")
+@SendTo("/topic/messages") 
+
+Marquer la destination à partir du topic du message :
+=====================================================
+@DestinationVariable("topic") 
+
+
+Marquer la classe WebSocketConfig comme classe de configuration et activer WebSocket :
+======================================================================================
+@Configuration
+@EnableWebSocketMessageBroker
+
+Autoriser les message de toutes origines sur registerStompEndpoints :
+=====================================================================
+.setAllowedOrigins("*")
+
+Tester sur un serveur local et distant :
+=========================================
+Changer localhost par window.location.hostname pour echanger des messages en distant sur une même instance

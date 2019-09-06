@@ -4,11 +4,7 @@
 
 Nouvelles dependances maven jdbc et h2db:
 =========================================
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-jdbc</artifactId>
-			<version>4.3.9.RELEASE</version>
-		</dependency>
+spring-jdbc (4.3.9.RELEASE)
 		
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -29,6 +25,14 @@ Scanner les sous packages en recherche des composants:
 ======================================================
 
 <context:component-scan base-package="com.formation.spring" />
+
+Creer une classe DAO avec l'annotation @Repository ajouter une propieté datasource
+==================================================================================
+@Repository
+public class CustomersDao {
+	private JdbcTemplate jdbcTemplate;
+	@Autowired
+	public void setDataSource(DataSource dataSource) {
 	
 
 Lier un data source au CustomerDao et initialiser le JdbcTemplate :
@@ -38,10 +42,10 @@ Lier un data source au CustomerDao et initialiser le JdbcTemplate :
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 	
-Utiliser le JdbcTemplate pour inserer et pour selectionner:
-===========================================================
+Utiliser le JdbcTemplate (dans deux méthodes différentes) pour inserer et pour selectionner:
+==============================================================================================
 this.jdbcTemplate.update( "insert into customers (first_name, last_name) values (?, ?)", "Leonor", "Watling");
-
+jdbcTemplate.queryForList("select first_name from customers");
 
 Utilisation du contexte spring dans un test JUnit standard:
 ===========================================================
@@ -62,10 +66,37 @@ Utiliser H2DB en mode serveur :
 ===============================
 java -jar /home/user/.m2/repository/com/h2database/h2/1.4.196/h2-1.4.196.jar -tcpAllowOthers
 
+Modifier la source de données :
+===============================
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="org.h2.Driver" />
+		<!-- <property name="url" value="jdbc:h2:/tmp/sales" /> -->
+		<property name="url" value="jdbc:h2:tcp://localhost:9092/~/tmp/sales" />
+		<property name="username" value="sa" />
+		<property name="password" value="changeme" />
+	</bean>
+
+Compléter le rowMapper et l'utiliser avec JdbcTemplate:
+=======================================================
+jdbcTemplate.query("select * from customers",new CustomerRowMapper())
 
 
-XXXXXXXXXXXXX Rowmapper
+Utiliser avec le NamedParameterJdbcTemplate:
+============================================
 
-XXXXXXXXXXXXX NamedParameterJdbcTemplate
+Utiliser avec le SimpleJdbcInsert:
+============================================
 
-xxxxxxxxxxxxx SimpleJdbcInsert
+Ajouter la dependances spring-test et changer la version jUnit à 4.12
+=====================================================================
+
+Utilise jUnit Intégré à Spring :
+================================
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:application-context.xml")
+
+@Autowired sur le DAO
+@Test sur les test unitaires
+
+

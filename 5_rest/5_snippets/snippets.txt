@@ -1,0 +1,63 @@
+Créer un nouveau projet (05_rest) et réutiliser les ressources et classes du projet precédent (04_web)
+================================================================================================= 
+Copier les configurations : spring-mvc-config.xml, web.xml
+Copier les classes des packages : dao, domain, service et web
+
+Ajouter la dépendance jackson pour convertir vers JSON et XML:
+==============================================================
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.8.10</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+			<version>2.8.10</version>
+		</dependency>
+
+Créer une copie de la méthode list (listrest par exemple) pour retourner un contenu REST :
+==========================================================================================
+@ResponseBody
+
+Définir un mapping et une méthode d'appel : 
+==========================================
+method=RequestMethod.GET
+
+Activer le cache client :
+=========================
+		CacheControl cacheControl = CacheControl.maxAge(300, TimeUnit.SECONDS);
+		
+		return ResponseEntity.ok().cacheControl(cacheControl).body(customerService.listCustomers());
+	
+Activer le cache serveur sur la liste :
+=======================================
+	<cache:annotation-driven />
+ 
+    <bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+        <property name="caches">
+            <set>
+                <bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" name="customers"/>
+            </set>
+        </property>
+    </bean>
+
+Sur les methode (couche service) :
+==================================
+@Cacheable("customers")
+
+
+Tester sur postman :
+====================
+Specifier les verbes GET, POST, PUT, DELETE et le type de contenu attendu par l'entête Accept
+	
+Ajouter les méthodes save et delete (retounent la MAJ ou l'id traité):
+======================================================================
+@RequestMapping(method = RequestMethod.POST)
+@ResponseStatus(HttpStatus.CREATED)
+@ResponseBody
+
+@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+@ResponseStatus(HttpStatus.OK)
+
