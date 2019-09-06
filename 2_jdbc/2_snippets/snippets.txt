@@ -1,0 +1,71 @@
+°°°°°°°°°
+ PHASE I
+°°°°°°°°°
+
+Nouvelles dependances maven jdbc et h2db:
+=========================================
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>4.3.9.RELEASE</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.4.196</version>
+			<scope>test</scope>
+		</dependency>
+		
+
+Source de données sur BD embarquée :
+====================================
+	<jdbc:embedded-database id="dataSource" type="H2">
+		<jdbc:script location="classpath:sql/create-db.sql" />
+		<jdbc:script location="classpath:sql/insert-data.sql" />
+	</jdbc:embedded-database>
+	
+Scanner les sous packages en recherche des composants:
+======================================================
+
+<context:component-scan base-package="com.formation.spring" />
+	
+
+Lier un data source au CustomerDao et initialiser le JdbcTemplate :
+====================================================================
+	@Autowired
+	public void setDataSource(DataSource dataSource) {
+		this.jdbcTemplate = new JdbcTemplate(dataSource);
+	}
+	
+Utiliser le JdbcTemplate pour inserer et pour selectionner:
+===========================================================
+this.jdbcTemplate.update( "insert into customers (first_name, last_name) values (?, ?)", "Leonor", "Watling");
+
+
+Utilisation du contexte spring dans un test JUnit standard:
+===========================================================
+
+	ApplicationContext context;
+		
+	public void setUp() {
+		context = new ClassPathXmlApplicationContext("application-context.xml");
+		custdao = (CustomersDao) context.getBean("customersDao");
+    }
+    
+    
+°°°°°°°°°
+ PHASE II
+°°°°°°°°°
+
+Utiliser H2DB en mode serveur :
+===============================
+java -jar /home/user/.m2/repository/com/h2database/h2/1.4.196/h2-1.4.196.jar -tcpAllowOthers
+
+
+
+XXXXXXXXXXXXX Rowmapper
+
+XXXXXXXXXXXXX NamedParameterJdbcTemplate
+
+xxxxxxxxxxxxx SimpleJdbcInsert

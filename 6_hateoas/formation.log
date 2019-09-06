@@ -1,0 +1,16 @@
+14/09 16:06:46 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+14/09 16:06:46 INFO  Version:45 - HHH000412: Hibernate Core {5.2.10.Final}
+14/09 16:06:46 INFO  Environment:213 - HHH000206: hibernate.properties not found
+14/09 16:06:46 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+14/09 16:06:47 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+14/09 16:09:33 INFO  CustomerDaoImp:34 - DB request executed
+14/09 16:09:33 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+14/09 16:15:26 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+14/09 16:15:27 INFO  Version:45 - HHH000412: Hibernate Core {5.2.10.Final}
+14/09 16:15:27 INFO  Environment:213 - HHH000206: hibernate.properties not found
+14/09 16:15:27 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+14/09 16:15:27 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect

@@ -1,0 +1,15 @@
+conventions :
+=============
+groupID:
+com.formation.spring.test
+
+artifactId :
+0_test
+
+Dépendance pom :
+================
+<dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-context</artifactId>
+	<version>X.X.X.RELEASE</version>
+</dependency>

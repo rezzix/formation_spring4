@@ -1,0 +1,74 @@
+package com.formation.spring.repository;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import com.formation.spring.domain.Customer;
+
+public class CustomerRepositoryImpl implements CustomerRepository {
+	@PersistenceContext
+	private EntityManager em;
+	
+	public long count() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public void delete(Long arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void delete(Customer arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void delete(Iterable<? extends Customer> arg0) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public void deleteAll() {
+		// TODO Auto-generated method stub
+
+	}
+
+	public boolean exists(Long arg0) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public Iterable<Customer> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Iterable<Customer> findAll(Iterable<Long> arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Customer findOne(Long arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public <S extends Customer> S save(S arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public <S extends Customer> Iterable<S> save(Iterable<S> arg0) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Customer> findByLastName(String lastName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

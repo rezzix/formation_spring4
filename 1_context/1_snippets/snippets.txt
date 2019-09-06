@@ -1,0 +1,93 @@
+°°°°°°°°°
+ PHASE I
+°°°°°°°°°
+
+class config :
+==============
+public class Config {
+	String appVersion;
+	String orgName;
+	String maxDbLines;	
+}
+
+initialisation et gestion par spring :
+======================================
+	<bean id="appVersion" class="java.lang.String">
+		<constructor-arg value="1.8"/>
+	</bean>
+
+	<bean id="orgName" class="java.lang.String">
+		<constructor-arg value="bigsales inc"/>
+	</bean>
+
+initialisation par référence :
+==============================	
+	<bean id="appConfig" class="com.formation.spring.util.Config">
+		<property name="appVersion" ref="appVersion"/>
+	...
+
+méthode d'initialisation :
+==========================
+<bean id="appConfig" class="com.formation.spring.util.Config" init-method="printInitialisation">
+
+Initier le context spring dans le main :
+========================================
+ApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
+
+
+°°°°°°°°°°
+ PHASE II
+°°°°°°°°°°
+
+Dépendance pom :
+================
+	<dependency>
+		<groupId>org.aspectj</groupId>
+		<artifactId>aspectjrt</artifactId>
+		<version>1.6.11</version>
+	</dependency>
+	<dependency>
+		<groupId>org.aspectj</groupId>
+		<artifactId>aspectjweaver</artifactId>
+		<version>1.6.11</version>
+	</dependency>
+	
+Ajouter le schéma dans l'entête xml (config spring)
+===================================================
+nouvel attribut xmlns:apo et schemaLocation
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+Activation sur la config spring :
+=================================
+<aop:aspectj-autoproxy />
+
+
+Expression AspectJ pour intercepter les appels à la couche service :
+====================================================================
+"execution(* com.formation.spring.util..*(..))"
+
+La signature du compteur
+@Before("execution(* com.formation.spring.util..*(..))")
+public void compteur(JoinPoint joinPoint){
+
+La signature de l'afficheur de temps d'execution
+@Around("execution(* com.formation.spring.util..*(..))")
+public Object perfs(ProceedingJoinPoint proceedingJoinPoint){
+
+La valeur à retourner
+proceedingJoinPoint.proceed();
+
+Activation des traitement aynchrones (config spring):
+====================================================
+
+<task:executor id="myexecutor" pool-size="100"  />
+<task:annotation-driven executor="myexecutor"/>
+
+Bloquer un thread pour vérifier qu'il s'éxecute à part:
+=======================================================
+Thread.sleep(10000);

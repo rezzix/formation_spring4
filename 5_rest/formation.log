@@ -1,0 +1,241 @@
+13/09 08:32:17 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+13/09 08:32:17 INFO  Version:45 - HHH000412: Hibernate Core {5.2.10.Final}
+13/09 08:32:17 INFO  Environment:213 - HHH000206: hibernate.properties not found
+13/09 08:32:17 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+13/09 08:32:17 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13/09 08:32:34 INFO  CustomerController:27 - listCustomers called
+13/09 08:32:35 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+13/09 08:32:35 INFO  CustomerController:29 - returning : [Customer[id=1, firstName='roxane', lastName='lanane']]
+13/09 17:28:31 INFO  CustomerController:27 - listCustomers called
+13/09 17:28:31 INFO  CustomerController:29 - returning : [Customer[id=1, firstName='roxane', lastName='lanane']]
+13/09 17:32:26 INFO  CustomerController:27 - listCustomers called
+13/09 17:32:26 INFO  CustomerController:29 - returning : [Customer[id=1, firstName='roxane', lastName='lanane']]
+13/09 17:45:14 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+13/09 17:45:14 INFO  Version:45 - HHH000412: Hibernate Core {5.2.10.Final}
+13/09 17:45:14 INFO  Environment:213 - HHH000206: hibernate.properties not found
+13/09 17:45:15 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+13/09 17:45:15 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13/09 17:45:42 INFO  CustomerController:27 - listCustomers called
+13/09 17:45:42 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+13/09 17:45:43 INFO  CustomerController:29 - returning : [Customer[id=1, firstName='roxane', lastName='lanane']]
+13/09 17:45:56 INFO  CustomerController:27 - listCustomers called
+13/09 17:45:56 INFO  CustomerController:29 - returning : [Customer[id=1, firstName='roxane', lastName='lanane']]
+13/09 17:46:02 INFO  CustomerController:27 - listCustomers called
+13/09 17:46:02 INFO  CustomerController:29 - returning : [Customer[id=1, firstName='roxane', lastName='lanane']]
+13/09 17:48:04 INFO  CustomerController:27 - listCustomers called
+13/09 17:48:04 INFO  CustomerController:29 - returning : [Customer[id=1, firstName='roxane', lastName='lanane']]
+13/09 17:48:17 INFO  CustomerController:27 - listCustomers called
+13/09 17:48:17 INFO  CustomerController:29 - returning : [Customer[id=1, firstName='roxane', lastName='lanane']]
+13/09 17:50:20 INFO  CustomerController:27 - listCustomers called
+13/09 17:50:20 INFO  CustomerController:29 - returning : [Customer[id=1, firstName='roxane', lastName='lanane']]
+13/09 17:50:42 INFO  CustomerController:27 - listCustomers called
+13/09 17:50:42 INFO  CustomerController:29 - returning : [Customer[id=1, firstName='roxane', lastName='lanane']]
+13/09 17:52:37 INFO  CustomerController:27 - listCustomers called
+13/09 17:52:37 INFO  CustomerController:29 - returning : [Customer[id=1, firstName='roxane', lastName='lanane']]
+13/09 17:52:46 INFO  CustomerController:27 - listCustomers called
+13/09 17:52:46 INFO  CustomerController:29 - returning : [Customer[id=1, firstName='roxane', lastName='lanane']]
+13/09 17:53:12 INFO  CustomerController:27 - listCustomers called
+13/09 17:53:12 INFO  CustomerController:29 - returning : [Customer[id=1, firstName='roxane', lastName='lanane']]
+13/09 17:53:30 INFO  CustomerController:27 - listCustomers called
+13/09 17:53:30 INFO  CustomerController:29 - returning : [Customer[id=1, firstName='roxane', lastName='lanane']]
+13/09 17:53:46 INFO  CustomerController:27 - listCustomers called
+13/09 17:53:46 INFO  CustomerController:29 - returning : [Customer[id=1, firstName='roxane', lastName='lanane']]
+13/09 18:10:07 INFO  CustomerController:27 - listCustomers called
+13/09 18:10:08 INFO  CustomerController:29 - returning : [Customer[id=1, firstName='roxane', lastName='lanane']]
+13/09 18:10:17 INFO  CustomerController:27 - listCustomers called
+13/09 18:10:17 INFO  CustomerController:29 - returning : [Customer[id=1, firstName='roxane', lastName='lanane']]
+13/09 22:29:17 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+13/09 22:29:17 INFO  Version:45 - HHH000412: Hibernate Core {5.2.10.Final}
+13/09 22:29:17 INFO  Environment:213 - HHH000206: hibernate.properties not found
+13/09 22:29:17 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+13/09 22:29:18 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13/09 22:29:27 INFO  CustomerController:28 - listCustomers called
+13/09 22:29:27 INFO  CustomerDaoImp:34 - DB request executed
+13/09 22:29:27 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+13/09 22:29:27 INFO  CustomerDaoImp:34 - DB request executed
+13/09 22:29:27 INFO  CustomerController:30 - returning : [Customer[id=1, firstName='roxane', lastName='lanane']]
+13/09 22:29:27 INFO  CustomerDaoImp:34 - DB request executed
+13/09 22:29:31 INFO  CustomerController:28 - listCustomers called
+13/09 22:29:31 INFO  CustomerDaoImp:34 - DB request executed
+13/09 22:29:31 INFO  CustomerDaoImp:34 - DB request executed
+13/09 22:29:31 INFO  CustomerController:30 - returning : [Customer[id=1, firstName='roxane', lastName='lanane']]
+13/09 22:29:31 INFO  CustomerDaoImp:34 - DB request executed
+13/09 22:29:36 INFO  CustomerController:28 - listCustomers called
+13/09 22:29:36 INFO  CustomerDaoImp:34 - DB request executed
+13/09 22:29:36 INFO  CustomerDaoImp:34 - DB request executed
+13/09 22:29:36 INFO  CustomerController:30 - returning : [Customer[id=1, firstName='roxane', lastName='lanane']]
+13/09 22:29:36 INFO  CustomerDaoImp:34 - DB request executed
+13/09 22:35:41 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+13/09 22:35:41 INFO  Version:45 - HHH000412: Hibernate Core {5.2.10.Final}
+13/09 22:35:41 INFO  Environment:213 - HHH000206: hibernate.properties not found
+13/09 22:35:41 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+13/09 22:35:41 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13/09 22:36:02 INFO  CustomerController:28 - listCustomers called
+13/09 22:36:02 INFO  CustomerDaoImp:34 - DB request executed
+13/09 22:36:02 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+13/09 22:36:02 INFO  CustomerDaoImp:34 - DB request executed
+13/09 22:36:02 INFO  CustomerController:30 - returning : [Customer[id=1, firstName='roxane', lastName='lanane']]
+13/09 22:36:02 INFO  CustomerDaoImp:34 - DB request executed
+13/09 22:36:18 INFO  CustomerController:28 - listCustomers called
+13/09 22:36:18 INFO  CustomerDaoImp:34 - DB request executed
+13/09 22:36:18 INFO  CustomerDaoImp:34 - DB request executed
+13/09 22:36:18 INFO  CustomerController:30 - returning : [Customer[id=1, firstName='roxane', lastName='lanane']]
+13/09 22:36:18 INFO  CustomerDaoImp:34 - DB request executed
+13/09 22:36:28 INFO  CustomerController:28 - listCustomers called
+13/09 22:36:28 INFO  CustomerDaoImp:34 - DB request executed
+13/09 22:36:28 INFO  CustomerDaoImp:34 - DB request executed
+13/09 22:36:28 INFO  CustomerController:30 - returning : [Customer[id=1, firstName='roxane', lastName='lanane']]
+13/09 22:36:28 INFO  CustomerDaoImp:34 - DB request executed
+13/09 22:39:54 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+13/09 22:39:54 INFO  Version:45 - HHH000412: Hibernate Core {5.2.10.Final}
+13/09 22:39:54 INFO  Environment:213 - HHH000206: hibernate.properties not found
+13/09 22:39:55 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+13/09 22:39:55 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13/09 22:40:36 INFO  CustomerController:28 - listCustomers called
+13/09 22:40:36 INFO  CustomerDaoImp:34 - DB request executed
+13/09 22:40:36 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+13/09 22:40:37 INFO  CustomerDaoImp:34 - DB request executed
+13/09 22:40:37 INFO  CustomerController:30 - returning : [Customer[id=1, firstName='roxane', lastName='lanane']]
+13/09 22:40:37 INFO  CustomerDaoImp:34 - DB request executed
+13/09 22:40:49 INFO  CustomerController:28 - listCustomers called
+13/09 22:40:49 INFO  CustomerDaoImp:34 - DB request executed
+13/09 22:40:49 INFO  CustomerDaoImp:34 - DB request executed
+13/09 22:40:49 INFO  CustomerController:30 - returning : [Customer[id=1, firstName='roxane', lastName='lanane']]
+13/09 22:40:49 INFO  CustomerDaoImp:34 - DB request executed
+13/09 22:40:52 INFO  CustomerController:28 - listCustomers called
+13/09 22:40:52 INFO  CustomerDaoImp:34 - DB request executed
+13/09 22:40:52 INFO  CustomerDaoImp:34 - DB request executed
+13/09 22:40:52 INFO  CustomerController:30 - returning : [Customer[id=1, firstName='roxane', lastName='lanane']]
+13/09 22:40:52 INFO  CustomerDaoImp:34 - DB request executed
+13/09 22:44:23 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+13/09 22:44:23 INFO  Version:45 - HHH000412: Hibernate Core {5.2.10.Final}
+13/09 22:44:23 INFO  Environment:213 - HHH000206: hibernate.properties not found
+13/09 22:44:23 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+13/09 22:44:24 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+13/09 22:44:32 INFO  CustomerController:28 - listCustomers called
+13/09 22:44:32 INFO  CustomerDaoImp:34 - DB request executed
+13/09 22:44:32 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+13/09 22:44:33 INFO  CustomerController:30 - returning : [Customer[id=1, firstName='roxane', lastName='lanane']]
+13/09 22:44:46 INFO  CustomerController:28 - listCustomers called
+13/09 22:44:46 INFO  CustomerController:30 - returning : [Customer[id=1, firstName='roxane', lastName='lanane']]
+14/09 15:23:53 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+14/09 15:23:53 INFO  Version:45 - HHH000412: Hibernate Core {5.2.10.Final}
+14/09 15:23:53 INFO  Environment:213 - HHH000206: hibernate.properties not found
+14/09 15:23:53 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+14/09 15:23:54 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+14/09 15:29:09 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+14/09 15:29:09 INFO  Version:45 - HHH000412: Hibernate Core {5.2.10.Final}
+14/09 15:29:09 INFO  Environment:213 - HHH000206: hibernate.properties not found
+14/09 15:29:09 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+14/09 15:29:09 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+14/09 15:29:12 INFO  CustomerDaoImp:34 - DB request executed
+14/09 15:29:13 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+26/09 22:27:33 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+26/09 22:27:33 INFO  Version:45 - HHH000412: Hibernate Core {5.2.10.Final}
+26/09 22:27:33 INFO  Environment:213 - HHH000206: hibernate.properties not found
+26/09 22:27:33 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+26/09 22:27:34 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+26/09 22:28:25 INFO  CustomerDaoImp:34 - DB request executed
+26/09 22:28:25 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+26/09 23:36:43 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+26/09 23:36:44 INFO  Version:45 - HHH000412: Hibernate Core {5.2.10.Final}
+26/09 23:36:44 INFO  Environment:213 - HHH000206: hibernate.properties not found
+26/09 23:36:44 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+26/09 23:36:44 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+26/09 23:37:07 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+26/09 23:37:08 INFO  Version:45 - HHH000412: Hibernate Core {5.2.10.Final}
+26/09 23:37:08 INFO  Environment:213 - HHH000206: hibernate.properties not found
+26/09 23:37:08 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+26/09 23:37:08 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+26/09 23:37:55 INFO  CustomerDaoImp:34 - DB request executed
+26/09 23:37:55 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+29/09 07:31:07 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+29/09 07:31:07 INFO  Version:45 - HHH000412: Hibernate Core {5.2.10.Final}
+29/09 07:31:07 INFO  Environment:213 - HHH000206: hibernate.properties not found
+29/09 07:31:07 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+29/09 07:31:08 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+29/09 08:00:46 INFO  CustomerDaoImp:34 - DB request executed
+29/09 08:00:46 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+29/09 08:59:38 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+29/09 08:59:38 INFO  Version:45 - HHH000412: Hibernate Core {5.2.10.Final}
+29/09 08:59:38 INFO  Environment:213 - HHH000206: hibernate.properties not found
+29/09 08:59:38 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+29/09 08:59:39 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+29/09 09:00:06 INFO  CustomerDaoImp:34 - DB request executed
+29/09 09:00:07 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+08/02 23:38:48 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+08/02 23:38:49 INFO  Version:45 - HHH000412: Hibernate Core {5.2.10.Final}
+08/02 23:38:49 INFO  Environment:213 - HHH000206: hibernate.properties not found
+08/02 23:38:49 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+08/02 23:38:52 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+08/02 23:45:50 INFO  CustomerDaoImp:34 - DB request executed
+08/02 23:45:50 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+18/04 21:51:33 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+18/04 21:51:34 INFO  Version:45 - HHH000412: Hibernate Core {5.2.10.Final}
+18/04 21:51:34 INFO  Environment:213 - HHH000206: hibernate.properties not found
+18/04 21:51:34 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+18/04 21:51:34 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+18/04 21:52:21 INFO  CustomerDaoImp:34 - DB request executed
+18/04 21:52:21 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+18/04 21:53:51 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+18/04 21:53:51 INFO  Version:45 - HHH000412: Hibernate Core {5.2.10.Final}
+18/04 21:53:51 INFO  Environment:213 - HHH000206: hibernate.properties not found
+18/04 21:53:51 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+18/04 21:53:52 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+18/04 21:57:03 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+18/04 21:57:04 INFO  Version:45 - HHH000412: Hibernate Core {5.2.10.Final}
+18/04 21:57:04 INFO  Environment:213 - HHH000206: hibernate.properties not found
+18/04 21:57:04 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+18/04 21:57:04 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+18/04 22:05:27 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+18/04 22:05:28 INFO  Version:45 - HHH000412: Hibernate Core {5.2.10.Final}
+18/04 22:05:28 INFO  Environment:213 - HHH000206: hibernate.properties not found
+18/04 22:05:28 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+18/04 22:05:28 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+18/04 22:07:51 INFO  CustomerDaoImp:34 - DB request executed
+18/04 22:07:51 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
+18/04 22:12:36 INFO  LogHelper:31 - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+18/04 22:12:37 INFO  Version:45 - HHH000412: Hibernate Core {5.2.10.Final}
+18/04 22:12:37 INFO  Environment:213 - HHH000206: hibernate.properties not found
+18/04 22:12:37 INFO  Version:66 - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+18/04 22:12:37 INFO  Dialect:157 - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+18/04 22:12:47 INFO  CustomerDaoImp:34 - DB request executed
+18/04 22:12:47 INFO  QueryTranslatorFactoryInitiator:47 - HHH000397: Using ASTQueryTranslatorFactory
